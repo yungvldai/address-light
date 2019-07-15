@@ -1,0 +1,274 @@
+   1               		.file	"main.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	set_l
+  18               	set_l:
+  19               	.LFB6:
+  20               	.LM1:
+  21               	/* prologue: function */
+  22               	/* frame size = 0 */
+  23               	.LM2:
+  24 0000 419A      		sbi 40-32,1
+  25               	.LM3:
+  26               	/* #APP */
+  27               	 ;  11 "main.c" 1
+  28 0002 0000      		nop
+  29               	 ;  0 "" 2
+  30               	.LM4:
+  31               	 ;  12 "main.c" 1
+  32 0004 0000      		nop
+  33               	 ;  0 "" 2
+  34               	.LM5:
+  35               	 ;  13 "main.c" 1
+  36 0006 0000      		nop
+  37               	 ;  0 "" 2
+  38               	.LM6:
+  39               	 ;  14 "main.c" 1
+  40 0008 0000      		nop
+  41               	 ;  0 "" 2
+  42               	.LM7:
+  43               	 ;  15 "main.c" 1
+  44 000a 0000      		nop
+  45               	 ;  0 "" 2
+  46               	.LM8:
+  47               	/* #NOAPP */
+  48 000c 4198      		cbi 40-32,1
+  49               	/* epilogue start */
+  50               	.LM9:
+  51 000e 0895      		ret
+  52               	.LFE6:
+  54               	.global	set_h
+  56               	set_h:
+  57               	.LFB7:
+  58               	.LM10:
+  59               	/* prologue: function */
+  60               	/* frame size = 0 */
+  61               	.LM11:
+  62 0010 419A      		sbi 40-32,1
+  63               	.LM12:
+  64               	/* #APP */
+  65               	 ;  21 "main.c" 1
+  66 0012 0000      		nop
+  67               	 ;  0 "" 2
+  68               	.LM13:
+  69               	 ;  22 "main.c" 1
+  70 0014 0000      		nop
+  71               	 ;  0 "" 2
+  72               	.LM14:
+  73               	 ;  23 "main.c" 1
+  74 0016 0000      		nop
+  75               	 ;  0 "" 2
+  76               	.LM15:
+  77               	 ;  24 "main.c" 1
+  78 0018 0000      		nop
+  79               	 ;  0 "" 2
+  80               	.LM16:
+  81               	 ;  25 "main.c" 1
+  82 001a 0000      		nop
+  83               	 ;  0 "" 2
+  84               	.LM17:
+  85               	 ;  26 "main.c" 1
+  86 001c 0000      		nop
+  87               	 ;  0 "" 2
+  88               	.LM18:
+  89               	 ;  27 "main.c" 1
+  90 001e 0000      		nop
+  91               	 ;  0 "" 2
+  92               	.LM19:
+  93               	 ;  28 "main.c" 1
+  94 0020 0000      		nop
+  95               	 ;  0 "" 2
+  96               	.LM20:
+  97               	 ;  29 "main.c" 1
+  98 0022 0000      		nop
+  99               	 ;  0 "" 2
+ 100               	.LM21:
+ 101               	 ;  30 "main.c" 1
+ 102 0024 0000      		nop
+ 103               	 ;  0 "" 2
+ 104               	.LM22:
+ 105               	 ;  31 "main.c" 1
+ 106 0026 0000      		nop
+ 107               	 ;  0 "" 2
+ 108               	.LM23:
+ 109               	/* #NOAPP */
+ 110 0028 4198      		cbi 40-32,1
+ 111               	/* epilogue start */
+ 112               	.LM24:
+ 113 002a 0895      		ret
+ 114               	.LFE7:
+ 116               	.global	set_array
+ 118               	set_array:
+ 119               	.LFB8:
+ 120               	.LM25:
+ 121               	.LVL0:
+ 122 002c 8F92      		push r8
+ 123 002e 9F92      		push r9
+ 124 0030 AF92      		push r10
+ 125 0032 BF92      		push r11
+ 126 0034 CF92      		push r12
+ 127 0036 DF92      		push r13
+ 128 0038 EF92      		push r14
+ 129 003a FF92      		push r15
+ 130 003c 0F93      		push r16
+ 131 003e 1F93      		push r17
+ 132 0040 CF93      		push r28
+ 133 0042 DF93      		push r29
+ 134               	/* prologue: function */
+ 135               	/* frame size = 0 */
+ 136 0044 4B01      		movw r8,r22
+ 137               	.LM26:
+ 138 0046 5C01      		movw r10,r24
+ 139               	.LVL1:
+ 140 0048 CC24      		clr r12
+ 141 004a DD24      		clr r13
+ 142               	.LVL2:
+ 143 004c 00C0      		rjmp .L6
+ 144               	.LVL3:
+ 145               	.L10:
+ 146               	.LM27:
+ 147 004e E12C      		mov r14,__zero_reg__
+ 148 0050 F12C      		mov r15,__zero_reg__
+ 149 0052 012D      		mov r16,__zero_reg__
+ 150 0054 91E0      		ldi r25,hhi8(16777216)
+ 151 0056 192F      		mov r17,r25
+ 152 0058 C0E0      		ldi r28,lo8(0)
+ 153 005a D0E0      		ldi r29,hi8(0)
+ 154               	.L9:
+ 155               	.LM28:
+ 156 005c 1695      		lsr r17
+ 157 005e 0795      		ror r16
+ 158 0060 F794      		ror r15
+ 159 0062 E794      		ror r14
+ 160               	.LM29:
+ 161 0064 F501      		movw r30,r10
+ 162 0066 8081      		ld r24,Z
+ 163 0068 9181      		ldd r25,Z+1
+ 164 006a A281      		ldd r26,Z+2
+ 165 006c B381      		ldd r27,Z+3
+ 166 006e 8E21      		and r24,r14
+ 167 0070 9F21      		and r25,r15
+ 168 0072 A023      		and r26,r16
+ 169 0074 B123      		and r27,r17
+ 170 0076 0097      		sbiw r24,0
+ 171 0078 A105      		cpc r26,__zero_reg__
+ 172 007a B105      		cpc r27,__zero_reg__
+ 173 007c 01F4      		brne .L7
+ 174               	.LM30:
+ 175 007e 0E94 0000 		call set_l
+ 176 0082 00C0      		rjmp .L8
+ 177               	.LVL4:
+ 178               	.L7:
+ 179               	.LM31:
+ 180 0084 0E94 0000 		call set_h
+ 181               	.L8:
+ 182               	.LM32:
+ 183 0088 2196      		adiw r28,1
+ 184 008a C831      		cpi r28,24
+ 185 008c D105      		cpc r29,__zero_reg__
+ 186 008e 01F4      		brne .L9
+ 187               	.LM33:
+ 188 0090 0894      		sec
+ 189 0092 C11C      		adc r12,__zero_reg__
+ 190 0094 D11C      		adc r13,__zero_reg__
+ 191 0096 84E0      		ldi r24,lo8(4)
+ 192 0098 90E0      		ldi r25,hi8(4)
+ 193 009a A80E      		add r10,r24
+ 194 009c B91E      		adc r11,r25
+ 195               	.LVL5:
+ 196               	.L6:
+ 197 009e C814      		cp r12,r8
+ 198 00a0 D904      		cpc r13,r9
+ 199 00a2 00F0      		brlo .L10
+ 200               	/* epilogue start */
+ 201               	.LM34:
+ 202 00a4 DF91      		pop r29
+ 203 00a6 CF91      		pop r28
+ 204               	.LVL6:
+ 205 00a8 1F91      		pop r17
+ 206 00aa 0F91      		pop r16
+ 207 00ac FF90      		pop r15
+ 208 00ae EF90      		pop r14
+ 209               	.LVL7:
+ 210 00b0 DF90      		pop r13
+ 211 00b2 CF90      		pop r12
+ 212               	.LVL8:
+ 213 00b4 BF90      		pop r11
+ 214 00b6 AF90      		pop r10
+ 215 00b8 9F90      		pop r9
+ 216 00ba 8F90      		pop r8
+ 217               	.LVL9:
+ 218 00bc 0895      		ret
+ 219               	.LFE8:
+ 221               	.global	rgb
+ 223               	rgb:
+ 224               	.LFB9:
+ 225               	.LM35:
+ 226               	.LVL10:
+ 227 00be EF92      		push r14
+ 228               	.LVL11:
+ 229 00c0 FF92      		push r15
+ 230 00c2 0F93      		push r16
+ 231 00c4 1F93      		push r17
+ 232               	/* prologue: function */
+ 233               	/* frame size = 0 */
+ 234               	.LM36:
+ 235 00c6 A901      		movw r20,r18
+ 236 00c8 3327      		clr r19
+ 237 00ca 2227      		clr r18
+ 238               	.LVL12:
+ 239 00cc 2E29      		or r18,r14
+ 240 00ce 3F29      		or r19,r15
+ 241 00d0 402B      		or r20,r16
+ 242 00d2 512B      		or r21,r17
+ 243               	.LVL13:
+ 244 00d4 982F      		mov r25,r24
+ 245 00d6 872F      		mov r24,r23
+ 246 00d8 762F      		mov r23,r22
+ 247 00da 6627      		clr r22
+ 248               	.LVL14:
+ 249 00dc 262B      		or r18,r22
+ 250 00de 372B      		or r19,r23
+ 251 00e0 482B      		or r20,r24
+ 252 00e2 592B      		or r21,r25
+ 253               	.LM37:
+ 254 00e4 B901      		movw r22,r18
+ 255 00e6 CA01      		movw r24,r20
+ 256               	/* epilogue start */
+ 257 00e8 1F91      		pop r17
+ 258 00ea 0F91      		pop r16
+ 259 00ec FF90      		pop r15
+ 260 00ee EF90      		pop r14
+ 261               	.LVL15:
+ 262 00f0 0895      		ret
+ 263               	.LFE9:
+ 265               	.global	main
+ 267               	main:
+ 268               	.LFB10:
+ 269               	.LM38:
+ 270               	/* prologue: function */
+ 271               	/* frame size = 0 */
+ 272               	.L16:
+ 273 00f2 00C0      		rjmp .L16
+ 274               	.LFE10:
+ 332               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\vivanov\AppData\Local\Temp/ccpREC70.s:2      *ABS*:0000003f __SREG__
+C:\Users\vivanov\AppData\Local\Temp/ccpREC70.s:3      *ABS*:0000003e __SP_H__
+C:\Users\vivanov\AppData\Local\Temp/ccpREC70.s:4      *ABS*:0000003d __SP_L__
+C:\Users\vivanov\AppData\Local\Temp/ccpREC70.s:5      *ABS*:00000034 __CCP__
+C:\Users\vivanov\AppData\Local\Temp/ccpREC70.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\vivanov\AppData\Local\Temp/ccpREC70.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\vivanov\AppData\Local\Temp/ccpREC70.s:18     .text:00000000 set_l
+C:\Users\vivanov\AppData\Local\Temp/ccpREC70.s:56     .text:00000010 set_h
+C:\Users\vivanov\AppData\Local\Temp/ccpREC70.s:118    .text:0000002c set_array
+C:\Users\vivanov\AppData\Local\Temp/ccpREC70.s:223    .text:000000be rgb
+C:\Users\vivanov\AppData\Local\Temp/ccpREC70.s:267    .text:000000f2 main
+
+NO UNDEFINED SYMBOLS

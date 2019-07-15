@@ -1,0 +1,267 @@
+
+main.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000178  00000000  00000000  00000054  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .debug_aranges 00000020  00000000  00000000  000001cc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  2 .debug_pubnames 00000045  00000000  00000000  000001ec  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  3 .debug_info   00000148  00000000  00000000  00000231  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_abbrev 000000cb  00000000  00000000  00000379  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_line   00000178  00000000  00000000  00000444  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_frame  00000060  00000000  00000000  000005bc  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_str    0000008f  00000000  00000000  0000061c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_loc    0000010e  00000000  00000000  000006ab  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 34 00 	jmp	0x68	; 0x68 <__ctors_end>
+   4:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+   8:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+   c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  10:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  14:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  18:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  1c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  20:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  24:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  28:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  2c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  30:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  34:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  38:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  3c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  40:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  44:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  48:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  4c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  50:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  54:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  58:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  5c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  60:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  64:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+
+00000068 <__ctors_end>:
+  68:	11 24       	eor	r1, r1
+  6a:	1f be       	out	0x3f, r1	; 63
+  6c:	cf ef       	ldi	r28, 0xFF	; 255
+  6e:	d8 e0       	ldi	r29, 0x08	; 8
+  70:	de bf       	out	0x3e, r29	; 62
+  72:	cd bf       	out	0x3d, r28	; 61
+  74:	0e 94 b9 00 	call	0x172	; 0x172 <main>
+  78:	0c 94 ba 00 	jmp	0x174	; 0x174 <_exit>
+
+0000007c <__bad_interrupt>:
+  7c:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000080 <set_l>:
+#define ch() PORTC |= (1<<1)
+
+#define runtime 1
+
+void set_l(void) {
+	ch();
+  80:	41 9a       	sbi	0x08, 1	; 8
+	asm("nop"); //microdelay
+  82:	00 00       	nop
+	asm("nop");
+  84:	00 00       	nop
+	asm("nop");
+  86:	00 00       	nop
+	asm("nop");
+  88:	00 00       	nop
+	asm("nop");
+  8a:	00 00       	nop
+	cl();
+  8c:	41 98       	cbi	0x08, 1	; 8
+}
+  8e:	08 95       	ret
+
+00000090 <set_h>:
+
+void set_h(void) {
+	ch();
+  90:	41 9a       	sbi	0x08, 1	; 8
+	asm("nop"); //microdelay
+  92:	00 00       	nop
+	asm("nop");
+  94:	00 00       	nop
+	asm("nop");
+  96:	00 00       	nop
+	asm("nop");
+  98:	00 00       	nop
+	asm("nop");
+  9a:	00 00       	nop
+	asm("nop");
+  9c:	00 00       	nop
+	asm("nop");
+  9e:	00 00       	nop
+	asm("nop");
+  a0:	00 00       	nop
+	asm("nop");
+  a2:	00 00       	nop
+	asm("nop");
+  a4:	00 00       	nop
+	asm("nop");
+  a6:	00 00       	nop
+	cl();
+  a8:	41 98       	cbi	0x08, 1	; 8
+}
+  aa:	08 95       	ret
+
+000000ac <set_array>:
+
+void set_array(unsigned long int* array, unsigned int len) {
+  ac:	8f 92       	push	r8
+  ae:	9f 92       	push	r9
+  b0:	af 92       	push	r10
+  b2:	bf 92       	push	r11
+  b4:	cf 92       	push	r12
+  b6:	df 92       	push	r13
+  b8:	ef 92       	push	r14
+  ba:	ff 92       	push	r15
+  bc:	0f 93       	push	r16
+  be:	1f 93       	push	r17
+  c0:	cf 93       	push	r28
+  c2:	df 93       	push	r29
+  c4:	4b 01       	movw	r8, r22
+  c6:	5c 01       	movw	r10, r24
+  c8:	cc 24       	eor	r12, r12
+  ca:	dd 24       	eor	r13, r13
+  cc:	28 c0       	rjmp	.+80     	; 0x11e <set_array+0x72>
+	unsigned long int bit_order;
+	unsigned int j, i;
+	for (j = 0; j < len; j++) { 
+  ce:	e1 2c       	mov	r14, r1
+  d0:	f1 2c       	mov	r15, r1
+  d2:	01 2d       	mov	r16, r1
+  d4:	91 e0       	ldi	r25, 0x01	; 1
+  d6:	19 2f       	mov	r17, r25
+  d8:	c0 e0       	ldi	r28, 0x00	; 0
+  da:	d0 e0       	ldi	r29, 0x00	; 0
+		bit_order = 0x1000000;
+		for (i = 0; i < 24; i++) {
+			bit_order >>= 1;	
+  dc:	16 95       	lsr	r17
+  de:	07 95       	ror	r16
+  e0:	f7 94       	ror	r15
+  e2:	e7 94       	ror	r14
+			if ((array[j] & bit_order) == 0) {
+  e4:	f5 01       	movw	r30, r10
+  e6:	80 81       	ld	r24, Z
+  e8:	91 81       	ldd	r25, Z+1	; 0x01
+  ea:	a2 81       	ldd	r26, Z+2	; 0x02
+  ec:	b3 81       	ldd	r27, Z+3	; 0x03
+  ee:	8e 21       	and	r24, r14
+  f0:	9f 21       	and	r25, r15
+  f2:	a0 23       	and	r26, r16
+  f4:	b1 23       	and	r27, r17
+  f6:	00 97       	sbiw	r24, 0x00	; 0
+  f8:	a1 05       	cpc	r26, r1
+  fa:	b1 05       	cpc	r27, r1
+  fc:	19 f4       	brne	.+6      	; 0x104 <set_array+0x58>
+				set_l(); 			
+  fe:	0e 94 40 00 	call	0x80	; 0x80 <set_l>
+ 102:	02 c0       	rjmp	.+4      	; 0x108 <set_array+0x5c>
+			} else {
+				set_h();
+ 104:	0e 94 48 00 	call	0x90	; 0x90 <set_h>
+void set_array(unsigned long int* array, unsigned int len) {
+	unsigned long int bit_order;
+	unsigned int j, i;
+	for (j = 0; j < len; j++) { 
+		bit_order = 0x1000000;
+		for (i = 0; i < 24; i++) {
+ 108:	21 96       	adiw	r28, 0x01	; 1
+ 10a:	c8 31       	cpi	r28, 0x18	; 24
+ 10c:	d1 05       	cpc	r29, r1
+ 10e:	31 f7       	brne	.-52     	; 0xdc <set_array+0x30>
+}
+
+void set_array(unsigned long int* array, unsigned int len) {
+	unsigned long int bit_order;
+	unsigned int j, i;
+	for (j = 0; j < len; j++) { 
+ 110:	08 94       	sec
+ 112:	c1 1c       	adc	r12, r1
+ 114:	d1 1c       	adc	r13, r1
+ 116:	84 e0       	ldi	r24, 0x04	; 4
+ 118:	90 e0       	ldi	r25, 0x00	; 0
+ 11a:	a8 0e       	add	r10, r24
+ 11c:	b9 1e       	adc	r11, r25
+ 11e:	c8 14       	cp	r12, r8
+ 120:	d9 04       	cpc	r13, r9
+ 122:	a8 f2       	brcs	.-86     	; 0xce <set_array+0x22>
+			} else {
+				set_h();
+			} 
+		}
+	}
+}
+ 124:	df 91       	pop	r29
+ 126:	cf 91       	pop	r28
+ 128:	1f 91       	pop	r17
+ 12a:	0f 91       	pop	r16
+ 12c:	ff 90       	pop	r15
+ 12e:	ef 90       	pop	r14
+ 130:	df 90       	pop	r13
+ 132:	cf 90       	pop	r12
+ 134:	bf 90       	pop	r11
+ 136:	af 90       	pop	r10
+ 138:	9f 90       	pop	r9
+ 13a:	8f 90       	pop	r8
+ 13c:	08 95       	ret
+
+0000013e <rgb>:
+
+unsigned long int rgb(unsigned long int r, unsigned long int g, unsigned long int b) {
+ 13e:	ef 92       	push	r14
+ 140:	ff 92       	push	r15
+ 142:	0f 93       	push	r16
+ 144:	1f 93       	push	r17
+ 146:	a9 01       	movw	r20, r18
+ 148:	33 27       	eor	r19, r19
+ 14a:	22 27       	eor	r18, r18
+ 14c:	2e 29       	or	r18, r14
+ 14e:	3f 29       	or	r19, r15
+ 150:	40 2b       	or	r20, r16
+ 152:	51 2b       	or	r21, r17
+ 154:	98 2f       	mov	r25, r24
+ 156:	87 2f       	mov	r24, r23
+ 158:	76 2f       	mov	r23, r22
+ 15a:	66 27       	eor	r22, r22
+ 15c:	26 2b       	or	r18, r22
+ 15e:	37 2b       	or	r19, r23
+ 160:	48 2b       	or	r20, r24
+ 162:	59 2b       	or	r21, r25
+	return (g << 16) | (r << 8) | (b);
+}
+ 164:	b9 01       	movw	r22, r18
+ 166:	ca 01       	movw	r24, r20
+ 168:	1f 91       	pop	r17
+ 16a:	0f 91       	pop	r16
+ 16c:	ff 90       	pop	r15
+ 16e:	ef 90       	pop	r14
+ 170:	08 95       	ret
+
+00000172 <main>:
+
+int main(void) {
+ 172:	ff cf       	rjmp	.-2      	; 0x172 <main>
+
+00000174 <_exit>:
+ 174:	f8 94       	cli
+
+00000176 <__stop_program>:
+ 176:	ff cf       	rjmp	.-2      	; 0x176 <__stop_program>
