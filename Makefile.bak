@@ -41,7 +41,7 @@
 
 
 # MCU name
-MCU = atmega8
+MCU = atmega328p
 
 
 # Processor frequency.
@@ -615,7 +615,5 @@ $(shell mkdir $(OBJDIR) 2>/dev/null)
 .PHONY : all begin finish end sizebefore sizeafter gccversion \
 build elf hex eep lss sym coff extcoff \
 clean clean_list program debug gdb-config
-
-
 
 
